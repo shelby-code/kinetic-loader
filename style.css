@@ -1,0 +1,65 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: rgba(122, 122, 233, 0.774);
+}
+
+.kinetic{
+    width: 80px;
+    height: 80px;
+    position: relative;
+}
+
+.kinetic::after, .kinetic::before{
+    content: '';
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    width: 0%;
+    height: 0;
+    
+    border: 50px solid transparent;
+    border-bottom-color: white;
+}
+
+.kinetic::before{
+    transform: rotate(0deg);
+    animation: animateA 2s linear infinite 0.5s;
+}
+
+@keyframes animateA{
+    0%, 25%{
+        transform: rotate(0deg);
+    }
+
+    50%, 75%{
+        transform: rotate(180deg);
+    }
+    100%{
+        transform: rotate(360deg);
+    }
+}
+
+.kinetic::after{
+    animation: animateB 2s linear infinite;
+}
+
+@keyframes animateB{
+    0%,25%{
+        transform: rotate(90deg);
+    }
+    50%,75%{
+        transform: rotate(270deg);
+    }
+    100%{
+        transform: rotate(450deg);
+    }
+}
